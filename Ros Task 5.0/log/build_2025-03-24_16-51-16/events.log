@@ -1,0 +1,124 @@
+[0.000000] (-) TimerEvent: {}
+[0.000250] (ros2_chat) JobQueued: {'identifier': 'ros2_chat', 'dependencies': OrderedDict()}
+[0.000282] (ros2_chat) JobStarted: {'identifier': 'ros2_chat'}
+[0.003646] (ros2_chat) JobProgress: {'identifier': 'ros2_chat', 'progress': 'cmake'}
+[0.003927] (ros2_chat) Command: {'cmd': ['/usr/bin/cmake', '/home/parth_234/ros2_chat', '-DCMAKE_INSTALL_PREFIX=/home/parth_234/ros2_chat/install/ros2_chat'], 'cwd': '/home/parth_234/ros2_chat/build/ros2_chat', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_IN:en'), ('USER', 'parth_234'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/parth_234'), ('OLDPWD', '/home/parth_234'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('SYSTEMD_EXEC_PID', '1861'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'parth_234'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'parth_234'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/humble/bin:/home/parth_234/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/parthpc:@/tmp/.ICE-unix/1834,unix/parthpc:/tmp/.ICE-unix/1834'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/c6d8743b_08f8_46ab_9d28_c3e80c806be8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.176'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/parth_234/ros2_chat/build/ros2_chat'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.046364] (ros2_chat) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[0.082378] (ros2_chat) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[0.086690] (ros2_chat) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.099587] (-) TimerEvent: {}
+[0.135148] (ros2_chat) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.139891] (ros2_chat) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.140060] (ros2_chat) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.140279] (ros2_chat) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.142164] (ros2_chat) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.199721] (-) TimerEvent: {}
+[0.208847] (ros2_chat) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.212984] (ros2_chat) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.213126] (ros2_chat) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.213380] (ros2_chat) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.214365] (ros2_chat) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.299934] (-) TimerEvent: {}
+[0.302826] (ros2_chat) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[0.348524] (ros2_chat) StdoutLine: {'line': b'-- Found rclcpp: 16.0.11 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[0.367867] (ros2_chat) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[0.370023] (ros2_chat) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.373875] (ros2_chat) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[0.379829] (ros2_chat) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.387450] (ros2_chat) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.400097] (-) TimerEvent: {}
+[0.407826] (ros2_chat) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[0.409180] (ros2_chat) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[0.466072] (ros2_chat) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  \n'}
+[0.491276] (ros2_chat) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/humble/include  \n'}
+[0.500181] (-) TimerEvent: {}
+[0.516342] (ros2_chat) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[0.522193] (ros2_chat) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[0.571806] (ros2_chat) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[0.571967] (ros2_chat) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[0.600319] (-) TimerEvent: {}
+[0.635488] (ros2_chat) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n'}
+[0.636202] (ros2_chat) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[0.700522] (-) TimerEvent: {}
+[0.702196] (ros2_chat) StdoutLine: {'line': b'-- Configuring done\n'}
+[0.707662] (ros2_chat) StdoutLine: {'line': b'-- Generating done\n'}
+[0.710037] (ros2_chat) StdoutLine: {'line': b'-- Build files have been written to: /home/parth_234/ros2_chat/build/ros2_chat\n'}
+[0.715057] (ros2_chat) CommandEnded: {'returncode': 0}
+[0.716260] (ros2_chat) JobProgress: {'identifier': 'ros2_chat', 'progress': 'build'}
+[0.716286] (ros2_chat) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/parth_234/ros2_chat/build/ros2_chat', '--', '-j16', '-l16'], 'cwd': '/home/parth_234/ros2_chat/build/ros2_chat', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_IN:en'), ('USER', 'parth_234'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/parth_234'), ('OLDPWD', '/home/parth_234'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('SYSTEMD_EXEC_PID', '1861'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'parth_234'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'parth_234'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/humble/bin:/home/parth_234/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/parthpc:@/tmp/.ICE-unix/1834,unix/parthpc:/tmp/.ICE-unix/1834'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/c6d8743b_08f8_46ab_9d28_c3e80c806be8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.176'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/parth_234/ros2_chat/build/ros2_chat'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.749986] (ros2_chat) StdoutLine: {'line': b'[ 25%] \x1b[32mBuilding CXX object CMakeFiles/chat_publisher.dir/src/chat_publisher.cpp.o\x1b[0m\n'}
+[0.750441] (ros2_chat) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/chat_subscriber.dir/src/chat_subscriber.cpp.o\x1b[0m\n'}
+[0.800846] (-) TimerEvent: {}
+[0.901214] (-) TimerEvent: {}
+[1.001559] (-) TimerEvent: {}
+[1.101932] (-) TimerEvent: {}
+[1.202289] (-) TimerEvent: {}
+[1.302536] (-) TimerEvent: {}
+[1.402890] (-) TimerEvent: {}
+[1.503223] (-) TimerEvent: {}
+[1.603623] (-) TimerEvent: {}
+[1.704011] (-) TimerEvent: {}
+[1.804401] (-) TimerEvent: {}
+[1.904777] (-) TimerEvent: {}
+[2.005151] (-) TimerEvent: {}
+[2.105459] (-) TimerEvent: {}
+[2.205746] (-) TimerEvent: {}
+[2.306102] (-) TimerEvent: {}
+[2.406367] (-) TimerEvent: {}
+[2.506666] (-) TimerEvent: {}
+[2.606942] (-) TimerEvent: {}
+[2.707239] (-) TimerEvent: {}
+[2.807483] (-) TimerEvent: {}
+[2.907729] (-) TimerEvent: {}
+[2.966104] (ros2_chat) StdoutLine: {'line': b'[ 75%] \x1b[32m\x1b[1mLinking CXX executable chat_publisher\x1b[0m\n'}
+[3.007920] (-) TimerEvent: {}
+[3.068964] (ros2_chat) StdoutLine: {'line': b'[ 75%] Built target chat_publisher\n'}
+[3.108147] (-) TimerEvent: {}
+[3.208517] (-) TimerEvent: {}
+[3.308898] (-) TimerEvent: {}
+[3.409258] (-) TimerEvent: {}
+[3.509627] (-) TimerEvent: {}
+[3.609989] (-) TimerEvent: {}
+[3.710301] (-) TimerEvent: {}
+[3.810539] (-) TimerEvent: {}
+[3.910779] (-) TimerEvent: {}
+[4.011159] (-) TimerEvent: {}
+[4.111528] (-) TimerEvent: {}
+[4.211888] (-) TimerEvent: {}
+[4.312255] (-) TimerEvent: {}
+[4.412489] (-) TimerEvent: {}
+[4.512862] (-) TimerEvent: {}
+[4.613189] (-) TimerEvent: {}
+[4.713559] (-) TimerEvent: {}
+[4.813928] (-) TimerEvent: {}
+[4.883354] (ros2_chat) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable chat_subscriber\x1b[0m\n'}
+[4.914158] (-) TimerEvent: {}
+[5.014533] (-) TimerEvent: {}
+[5.081509] (ros2_chat) StdoutLine: {'line': b'[100%] Built target chat_subscriber\n'}
+[5.092384] (ros2_chat) CommandEnded: {'returncode': 0}
+[5.093278] (ros2_chat) JobProgress: {'identifier': 'ros2_chat', 'progress': 'install'}
+[5.098682] (ros2_chat) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/parth_234/ros2_chat/build/ros2_chat'], 'cwd': '/home/parth_234/ros2_chat/build/ros2_chat', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_IN:en'), ('USER', 'parth_234'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/parth_234'), ('OLDPWD', '/home/parth_234'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('SYSTEMD_EXEC_PID', '1861'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'parth_234'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'parth_234'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/humble/bin:/home/parth_234/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/parthpc:@/tmp/.ICE-unix/1834,unix/parthpc:/tmp/.ICE-unix/1834'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/c6d8743b_08f8_46ab_9d28_c3e80c806be8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.176'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/parth_234/ros2_chat/build/ros2_chat'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[5.104730] (ros2_chat) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[5.104825] (ros2_chat) StdoutLine: {'line': b'-- Installing: /home/parth_234/ros2_chat/install/ros2_chat/lib/ros2_chat/chat_publisher\n'}
+[5.105538] (ros2_chat) StdoutLine: {'line': b'-- Set runtime path of "/home/parth_234/ros2_chat/install/ros2_chat/lib/ros2_chat/chat_publisher" to ""\n'}
+[5.105605] (ros2_chat) StdoutLine: {'line': b'-- Installing: /home/parth_234/ros2_chat/install/ros2_chat/lib/ros2_chat/chat_subscriber\n'}
+[5.106891] (ros2_chat) StdoutLine: {'line': b'-- Set runtime path of "/home/parth_234/ros2_chat/install/ros2_chat/lib/ros2_chat/chat_subscriber" to ""\n'}
+[5.106971] (ros2_chat) StdoutLine: {'line': b'-- Installing: /home/parth_234/ros2_chat/install/ros2_chat/share/ament_index/resource_index/package_run_dependencies/ros2_chat\n'}
+[5.107011] (ros2_chat) StdoutLine: {'line': b'-- Installing: /home/parth_234/ros2_chat/install/ros2_chat/share/ament_index/resource_index/parent_prefix_path/ros2_chat\n'}
+[5.107039] (ros2_chat) StdoutLine: {'line': b'-- Installing: /home/parth_234/ros2_chat/install/ros2_chat/share/ros2_chat/environment/ament_prefix_path.sh\n'}
+[5.107067] (ros2_chat) StdoutLine: {'line': b'-- Installing: /home/parth_234/ros2_chat/install/ros2_chat/share/ros2_chat/environment/ament_prefix_path.dsv\n'}
+[5.107094] (ros2_chat) StdoutLine: {'line': b'-- Installing: /home/parth_234/ros2_chat/install/ros2_chat/share/ros2_chat/environment/path.sh\n'}
+[5.107183] (ros2_chat) StdoutLine: {'line': b'-- Installing: /home/parth_234/ros2_chat/install/ros2_chat/share/ros2_chat/environment/path.dsv\n'}
+[5.107223] (ros2_chat) StdoutLine: {'line': b'-- Installing: /home/parth_234/ros2_chat/install/ros2_chat/share/ros2_chat/local_setup.bash\n'}
+[5.107255] (ros2_chat) StdoutLine: {'line': b'-- Installing: /home/parth_234/ros2_chat/install/ros2_chat/share/ros2_chat/local_setup.sh\n'}
+[5.107284] (ros2_chat) StdoutLine: {'line': b'-- Installing: /home/parth_234/ros2_chat/install/ros2_chat/share/ros2_chat/local_setup.zsh\n'}
+[5.107374] (ros2_chat) StdoutLine: {'line': b'-- Installing: /home/parth_234/ros2_chat/install/ros2_chat/share/ros2_chat/local_setup.dsv\n'}
+[5.107424] (ros2_chat) StdoutLine: {'line': b'-- Installing: /home/parth_234/ros2_chat/install/ros2_chat/share/ros2_chat/package.dsv\n'}
+[5.107454] (ros2_chat) StdoutLine: {'line': b'-- Installing: /home/parth_234/ros2_chat/install/ros2_chat/share/ament_index/resource_index/packages/ros2_chat\n'}
+[5.107483] (ros2_chat) StdoutLine: {'line': b'-- Installing: /home/parth_234/ros2_chat/install/ros2_chat/share/ros2_chat/cmake/ros2_chatConfig.cmake\n'}
+[5.107509] (ros2_chat) StdoutLine: {'line': b'-- Installing: /home/parth_234/ros2_chat/install/ros2_chat/share/ros2_chat/cmake/ros2_chatConfig-version.cmake\n'}
+[5.107545] (ros2_chat) StdoutLine: {'line': b'-- Installing: /home/parth_234/ros2_chat/install/ros2_chat/share/ros2_chat/package.xml\n'}
+[5.108859] (ros2_chat) CommandEnded: {'returncode': 0}
+[5.114820] (-) TimerEvent: {}
+[5.117631] (ros2_chat) JobEnded: {'identifier': 'ros2_chat', 'rc': 0}
+[5.117920] (-) EventReactorShutdown: {}

@@ -1,0 +1,65 @@
+[0.005s] Invoking command in '/home/parth_234/ros2_chat/build/ros2_chat': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/parth_234/ros2_chat -DCMAKE_INSTALL_PREFIX=/home/parth_234/ros2_chat/install/ros2_chat
+[0.046s] -- The C compiler identification is GNU 11.4.0
+[0.082s] -- The CXX compiler identification is GNU 11.4.0
+[0.086s] -- Detecting C compiler ABI info
+[0.135s] -- Detecting C compiler ABI info - done
+[0.140s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.140s] -- Detecting C compile features
+[0.140s] -- Detecting C compile features - done
+[0.142s] -- Detecting CXX compiler ABI info
+[0.209s] -- Detecting CXX compiler ABI info - done
+[0.213s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.213s] -- Detecting CXX compile features
+[0.213s] -- Detecting CXX compile features - done
+[0.214s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.303s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.348s] -- Found rclcpp: 16.0.11 (/opt/ros/humble/share/rclcpp/cmake)
+[0.368s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.370s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.374s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.380s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.387s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.408s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.409s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.466s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[0.491s] -- Found FastRTPS: /opt/ros/humble/include  
+[0.516s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.522s] -- Looking for pthread.h
+[0.572s] -- Looking for pthread.h - found
+[0.572s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[0.635s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[0.636s] -- Found Threads: TRUE  
+[0.702s] -- Configuring done
+[0.707s] -- Generating done
+[0.710s] -- Build files have been written to: /home/parth_234/ros2_chat/build/ros2_chat
+[0.716s] Invoked command in '/home/parth_234/ros2_chat/build/ros2_chat' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/parth_234/ros2_chat -DCMAKE_INSTALL_PREFIX=/home/parth_234/ros2_chat/install/ros2_chat
+[0.716s] Invoking command in '/home/parth_234/ros2_chat/build/ros2_chat': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/parth_234/ros2_chat/build/ros2_chat -- -j16 -l16
+[0.750s] [ 25%] [32mBuilding CXX object CMakeFiles/chat_publisher.dir/src/chat_publisher.cpp.o[0m
+[0.750s] [ 50%] [32mBuilding CXX object CMakeFiles/chat_subscriber.dir/src/chat_subscriber.cpp.o[0m
+[2.966s] [ 75%] [32m[1mLinking CXX executable chat_publisher[0m
+[3.069s] [ 75%] Built target chat_publisher
+[4.883s] [100%] [32m[1mLinking CXX executable chat_subscriber[0m
+[5.081s] [100%] Built target chat_subscriber
+[5.092s] Invoked command in '/home/parth_234/ros2_chat/build/ros2_chat' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/parth_234/ros2_chat/build/ros2_chat -- -j16 -l16
+[5.099s] Invoking command in '/home/parth_234/ros2_chat/build/ros2_chat': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/parth_234/ros2_chat/build/ros2_chat
+[5.105s] -- Install configuration: ""
+[5.105s] -- Installing: /home/parth_234/ros2_chat/install/ros2_chat/lib/ros2_chat/chat_publisher
+[5.105s] -- Set runtime path of "/home/parth_234/ros2_chat/install/ros2_chat/lib/ros2_chat/chat_publisher" to ""
+[5.105s] -- Installing: /home/parth_234/ros2_chat/install/ros2_chat/lib/ros2_chat/chat_subscriber
+[5.107s] -- Set runtime path of "/home/parth_234/ros2_chat/install/ros2_chat/lib/ros2_chat/chat_subscriber" to ""
+[5.107s] -- Installing: /home/parth_234/ros2_chat/install/ros2_chat/share/ament_index/resource_index/package_run_dependencies/ros2_chat
+[5.107s] -- Installing: /home/parth_234/ros2_chat/install/ros2_chat/share/ament_index/resource_index/parent_prefix_path/ros2_chat
+[5.107s] -- Installing: /home/parth_234/ros2_chat/install/ros2_chat/share/ros2_chat/environment/ament_prefix_path.sh
+[5.107s] -- Installing: /home/parth_234/ros2_chat/install/ros2_chat/share/ros2_chat/environment/ament_prefix_path.dsv
+[5.107s] -- Installing: /home/parth_234/ros2_chat/install/ros2_chat/share/ros2_chat/environment/path.sh
+[5.107s] -- Installing: /home/parth_234/ros2_chat/install/ros2_chat/share/ros2_chat/environment/path.dsv
+[5.107s] -- Installing: /home/parth_234/ros2_chat/install/ros2_chat/share/ros2_chat/local_setup.bash
+[5.107s] -- Installing: /home/parth_234/ros2_chat/install/ros2_chat/share/ros2_chat/local_setup.sh
+[5.107s] -- Installing: /home/parth_234/ros2_chat/install/ros2_chat/share/ros2_chat/local_setup.zsh
+[5.107s] -- Installing: /home/parth_234/ros2_chat/install/ros2_chat/share/ros2_chat/local_setup.dsv
+[5.107s] -- Installing: /home/parth_234/ros2_chat/install/ros2_chat/share/ros2_chat/package.dsv
+[5.107s] -- Installing: /home/parth_234/ros2_chat/install/ros2_chat/share/ament_index/resource_index/packages/ros2_chat
+[5.107s] -- Installing: /home/parth_234/ros2_chat/install/ros2_chat/share/ros2_chat/cmake/ros2_chatConfig.cmake
+[5.107s] -- Installing: /home/parth_234/ros2_chat/install/ros2_chat/share/ros2_chat/cmake/ros2_chatConfig-version.cmake
+[5.107s] -- Installing: /home/parth_234/ros2_chat/install/ros2_chat/share/ros2_chat/package.xml
+[5.109s] Invoked command in '/home/parth_234/ros2_chat/build/ros2_chat' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/parth_234/ros2_chat/build/ros2_chat
