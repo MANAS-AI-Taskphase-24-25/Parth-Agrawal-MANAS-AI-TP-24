@@ -5,11 +5,13 @@ import matplotlib
 matplotlib.use('TkAgg')
 import numpy as np
 import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
 from shapely.geometry import Polygon, LineString, Point
 import time
 import rclpy
 from rclpy.node import Node
-from sensor_msgs.msg import PointCloud2
+from sensor_msgs.msg import PointCloud2, PointField
+from std_msgs.msg import Header
 import struct
 import threading
 
@@ -33,15 +35,15 @@ class DroneLawnmower(Node):
         # DroneKit vehicle connection
         self.connection_string = "127.0.0.1:14550"
         self.vehicle = None
-        self.altitude = 5.0  # Fixed altitude in meters
-        self.sweep_spacing = 0.1202
+        self.altitude = 10.0  # Fixed altitude in meters
+        self.sweep_spacing = 0.2
 
         # Consistent reference point (AirSim OriginGeopoint)
         self.ref_lat = -35.363261
         self.ref_lon = 149.165230
 
         # Point cloud storage
-        self.point_cloud = []  # List to store (lat, lon) points
+        self.point_cloud = []  # List to store (lat, lon, z) points
         self.drone_position = None  # Store drone's (lat, lon) for alignment
         self.collect_pointcloud = False  # Start with collection disabled
         self.subscriber = self.create_subscription(
@@ -51,6 +53,9 @@ class DroneLawnmower(Node):
             10
         )
         print("Subscription Created")
+
+        # Publisher for RViz
+        self.publisher_ = self.create_publisher(PointCloud2, '/drone_pointcloud', 10)
 
         # Generate lawnmower path with consistent reference
         self.waypoints = self.generate_lawnmower_path(boundary_points, self.sweep_spacing)
@@ -114,17 +119,43 @@ class DroneLawnmower(Node):
         point_step = msg.point_step
         data = msg.data
         num_points = len(data) // point_step
+        sample_rate = 80  # Collect every 10th point to reduce data volume
 
-        for i in range(num_points):
+        for i in range(0, num_points, sample_rate):  # Downsample points
             offset = i * point_step
-            x = struct.unpack('f', data[offset:offset+4])[0]  # x in meters (Lidar local frame)
+            x = struct.unpack('f', data[offset:offset+4])[0]  # x in meters
             y = struct.unpack('f', data[offset+4:offset+8])[0]  # y in meters
-            # Convert Lidar local (x, y) to global (lat, lon) relative to drone position
+            z = struct.unpack('f', data[offset+8:offset+12])[0]  # z in meters
             delta_lat, delta_lon = self.meters_to_latlon(x, y, 0.0, 0.0)
             lat = drone_lat + delta_lat
             lon = drone_lon + delta_lon
-            self.point_cloud.append((lat, lon))
+            self.point_cloud.append((lat, lon, z))
+            self.publish_pointcloud(lat, lon, z)
         self.get_logger().info(f"Point cloud size: {len(self.point_cloud)} points")
+
+    def publish_pointcloud(self, lat, lon, z):
+        """Publish point cloud data for RViz."""
+        header = Header()
+        header.stamp = self.get_clock().now().to_msg()
+        header.frame_id = "map"
+        fields = [
+            PointField(name="x", offset=0, datatype=PointField.FLOAT32, count=1),
+            PointField(name="y", offset=4, datatype=PointField.FLOAT32, count=1),
+            PointField(name="z", offset=8, datatype=PointField.FLOAT32, count=1),
+        ]
+        x, y = self.latlon_to_meters(lat, lon, self.ref_lat, self.ref_lon)
+        data = struct.pack('fff', float(x), float(y), float(z))
+        pc2 = PointCloud2()
+        pc2.header = header
+        pc2.height = 1
+        pc2.width = 1
+        pc2.fields = fields
+        pc2.is_bigendian = False
+        pc2.point_step = 12
+        pc2.row_step = pc2.point_step
+        pc2.data = data
+        pc2.is_dense = True
+        self.publisher_.publish(pc2)
 
     def latlon_to_meters(self, lat, lon, ref_lat, ref_lon):
         """Convert latitude/longitude to meters relative to a reference point."""
@@ -143,7 +174,7 @@ class DroneLawnmower(Node):
         ref_lat_rad = np.radians(ref_lat)
         lat = ref_lat + (y / R) * (180 / np.pi)
         lon = ref_lon + (x / (R * np.cos(ref_lat_rad))) * (180 / np.pi)
-        return lat - ref_lat, lon - ref_lon  # Return delta for relative offset
+        return lat - ref_lat, lon - ref_lon
 
     def generate_lawnmower_path(self, boundary, sweep_spacing):
         """Generate lawnmower waypoints within the boundary using consistent reference."""
@@ -186,6 +217,7 @@ class DroneLawnmower(Node):
             print("Waiting for GUIDED mode...")
             time.sleep(1)
         print("Arming motors...")
+        self.vehicle.parameters['ARMING_CHECK'] = 0
         self.vehicle.armed = True
         while not self.vehicle.armed:
             print("Waiting for arming...")
@@ -197,7 +229,7 @@ class DroneLawnmower(Node):
             print(f"Altitude: {alt}")
             if alt >= target_altitude * 0.95:
                 print("Reached target altitude")
-                self.collect_pointcloud = True  # Enable after takeoff
+                self.collect_pointcloud = True
                 break
             time.sleep(1)
 
@@ -219,15 +251,14 @@ class DroneLawnmower(Node):
         print("Starting mission...")
         self.vehicle.commands.next = 0
         self.vehicle.mode = VehicleMode("AUTO")
-        self.collect_pointcloud = True  # Enable collection at mission start
+        self.collect_pointcloud = True
         while True:
             next_cmd = self.vehicle.commands.next
             self.get_logger().info(f"Executing waypoint {next_cmd}")
             if next_cmd >= len(self.vehicle.commands):
                 self.get_logger().info("Mission complete")
-                self.collect_pointcloud = False  # Disable after mission complete
+                self.collect_pointcloud = False
                 break
-            # Update drone position during mission
             self.drone_position = (
                 self.vehicle.location.global_relative_frame.lat,
                 self.vehicle.location.global_relative_frame.lon
@@ -244,43 +275,106 @@ class DroneLawnmower(Node):
             time.sleep(1)
         print("Landed.")
 
-    def plot_boundary_and_path(self):
-        """Plot the boundary, waypoints, and point cloud (matplotlib)."""
-        print("Entering plot_boundary_and_path...")
-        plt.figure(figsize=(10, 10))
+    def plot_all(self):
+        """Plot boundary/path, 3D Depth Model (removing large depth outliers), and 2D heatmap DEM as subplots."""
+        print("Entering plot_all...")
+        fig = plt.figure(figsize=(15, 5), constrained_layout=True)
+    
+        # Subplot 1: Boundary and Path (2D)
+        ax1 = fig.add_subplot(131)
         boundary_lats, boundary_lons = zip(*boundary_points)
-        plt.plot(boundary_lons, boundary_lats, 'b-', label='Boundary')
-        plt.plot(boundary_lons + (boundary_lons[0],), boundary_lats + (boundary_lats[0],), 'b-')
-        wp_lats, wp_lons = zip(*self.waypoints)
-        plt.plot(wp_lons, wp_lats, 'g*-', label='Waypoints')
+        # Convert boundary to meters for consistent scaling
+        boundary_meters = [self.latlon_to_meters(lat, lon, self.ref_lat, self.ref_lon) for lat, lon in zip(boundary_lats, boundary_lons)]
+        bx, by = zip(*boundary_meters)
+        ax1.plot(bx, by, 'b-', label='Boundary')
+        ax1.plot(bx + (bx[0],), by + (by[0],), 'b-')
+        # Convert waypoints to meters
+        wp_meters = [self.latlon_to_meters(lat, lon, self.ref_lat, self.ref_lon) for lat, lon in self.waypoints]
+        wx, wy = zip(*wp_meters)
+        ax1.plot(wx, wy, 'g*-', label='Waypoints')
         if self.point_cloud:
-            pc_lats, pc_lons = zip(*self.point_cloud)
-            plt.scatter(pc_lons, pc_lats, c='r', marker='.', label='Point Cloud', s=10)
+            pc_lats, pc_lons = zip(*[(p[0], p[1]) for p in self.point_cloud])
+            # Convert point cloud to meters
+            pc_meters = [self.latlon_to_meters(lat, lon, self.ref_lat, self.ref_lon) for lat, lon in zip(pc_lats, pc_lons)]
+            px, py = zip(*pc_meters)
+            ax1.scatter(px, py, c='r', marker='.', label='Point Cloud', s=10)
             print(f"Point cloud plotted with {len(self.point_cloud)} points.")
         else:
             print("No point cloud data to plot.")
-        plt.xlabel('Longitude')
-        plt.ylabel('Latitude')
-        plt.title('Lawnmower Path with Boundary and Point Cloud')
-        plt.legend()
-        plt.grid(True)
-        plt.axis('equal')
-        print("Calling plt.show()...")
+        ax1.set_xlabel('X (meters)')
+        ax1.set_ylabel('Y (meters)')
+        ax1.set_title('Lawnmower Path with Boundary')
+        ax1.legend()
+        ax1.grid(True)
+        ax1.axis('equal')
+        # Set limits based on combined extent
+        all_x = bx + wx + px if self.point_cloud else bx + wx
+        all_y = by + wy + py if self.point_cloud else by + wy
+        x_min, x_max = min(all_x), max(all_x)
+        y_min, y_max = min(all_y), max(all_y)
+        ax1.set_xlim(x_min - 10, x_max + 10)
+        ax1.set_ylim(y_min - 10, y_max + 10)
+    
+        # Subplot 2: 3D Depth Model (removing large depth outliers)
+        if self.point_cloud:
+            ax2 = fig.add_subplot(132, projection='3d')
+            pc_lats, pc_lons, pc_zs = zip(*self.point_cloud)
+            x, y = self.latlon_to_meters(np.array(pc_lats), np.array(pc_lons), self.ref_lat, self.ref_lon)
+            z = np.array(pc_zs)
+            # Negate z to represent depth (positive downward)
+            z_depth = -z
+        
+            # Remove large depth outliers (e.g., >10m)
+            depth_threshold = -10.0  # Max realistic depth in meters
+            non_outlier_mask = z_depth >= depth_threshold
+            num_outliers = len(z_depth) - np.sum(non_outlier_mask)
+            print(f"Removed {num_outliers} large depth outliers (> {depth_threshold}m).")
+            # Replace outliers with median of non-outlier depths
+            median_depth = np.median(z_depth[non_outlier_mask])
+            z_depth_clean = np.where(non_outlier_mask, z_depth, median_depth)
+        
+            # Plot cleaned depth values
+            scatter = ax2.scatter(x, y, z_depth_clean, c=z_depth_clean, cmap='viridis', marker='.', s=10)
+            ax2.set_xlabel('X (meters)')
+            ax2.set_ylabel('Y (meters)')
+            ax2.set_zlabel('Depth (m)')
+            ax2.set_title('3D Depth Model (Large Outliers Removed)')
+            fig.colorbar(scatter, ax=ax2, label='Depth (m)')
+        else:
+            print("No point cloud data for 3D Depth Model.")
+    
+        # Subplot 3: 2D Heatmap DEM (Depth with large outliers removed)
+        if self.point_cloud:
+            ax3 = fig.add_subplot(133)
+            x, y = self.latlon_to_meters(np.array(pc_lats), np.array(pc_lons), self.ref_lat, self.ref_lon)
+            z = np.array(pc_zs)
+            z_depth = -z  # Negate for depth
+            # Use same threshold as 3D plot
+            depth_threshold = -10.0  # Max realistic depth in meters
+            non_outlier_mask = z_depth >= depth_threshold
+            z_depth_clean = np.where(non_outlier_mask, z_depth, median_depth)
+            scatter = ax3.scatter(x, y, c=z_depth_clean, cmap='viridis', marker='.', s=10)
+            ax3.set_xlabel('X (meters)')
+            ax3.set_ylabel('Y (meters)')
+            ax3.set_title('2D Heatmap Depth Model (Large Outliers Removed)')
+            fig.colorbar(scatter, ax=ax3, label='Depth (m)')
+            ax3.axis('equal')
+            ax3.grid(True)
+        else:
+            print("No point cloud data for 2D Heatmap DEM.")
+    
+        print("Calling plt.show() for all plots...")
         plt.show()
         print("plt.show() completed.")
 
     def run(self):
         """Run the drone mission."""
         try:
-            # Arm and takeoff
             self.arm_and_takeoff(self.altitude)
-            # Send waypoints
             self.send_waypoints()
-            # Execute mission
             self.execute_mission()
-            # Plot after mission
             print("Mission finished, plotting results...")
-            self.plot_boundary_and_path()
+            self.plot_all()
         finally:
             self.shutdown()
 
